@@ -1,10 +1,16 @@
-import React from 'react'
-import { Component } from 'react'
+import React, { Component } from 'react'
+import './app.css'
+import Board from '../ReviewBoard/index.jsx'
 
 class App extends React.Component {
   render() {
     return (
-      <h1>Review Drop</h1>
+      <div>
+        <h1 style={{'position': 'fixed'}}>Dropped Reviews</h1>
+        <div style={{'position': 'absolute', 'top': '0'}}>
+         <Board/>
+        </div>
+      </div>
     )
   }
 }

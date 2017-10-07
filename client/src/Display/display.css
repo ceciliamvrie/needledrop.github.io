@@ -1,0 +1,18 @@
+.name, .display-data {
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  margin-top: 3.5%;
+}
+
+.name {
+  float: left;
+}
+
+.display-data {
+  float: right;
+  opacity: 0.5;
+}
+
+.display-container {
+  width: 285px;
+}

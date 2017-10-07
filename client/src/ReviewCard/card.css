@@ -1,0 +1,32 @@
+.card {
+  background-color: rgb(201, 204, 206);
+  border-radius: 5px 5px 0 0;
+  width: 285px;
+  height: 180px;
+}
+
+.browser {
+  display: block;
+  height: 13px;
+  background-color: #242424;
+  border-radius: 5px 5px 0.5px 0.5px;
+  position: relative;
+}
+
+.browser-dots {
+  margin-top: 21%;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+.container {
+  height: 100%;
+  margin-left: 1%;
+  display: flex;
+  flex-direction: row;
+  width: 24px;
+  margin: 6% 0;
+  justify-content: space-evenly;
+}
