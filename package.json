@@ -1,0 +1,39 @@
+{
+  "name": "needle-drop-reviews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack -d --watch & webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceciliamvrie/Needle-Drop-Reviews.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ceciliamvrie/Needle-Drop-Reviews/issues"
+  },
+  "homepage": "https://github.com/ceciliamvrie/Needle-Drop-Reviews#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.6.0",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.3",
+    "jquery": "^3.2.1",
+    "material-ui": "^0.18.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack-css-loaders": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^2.30.1",
+    "nodemon": "^1.11.0",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
