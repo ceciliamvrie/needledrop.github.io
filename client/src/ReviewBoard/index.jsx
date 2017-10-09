@@ -26,7 +26,7 @@ class Board extends React.Component {
       <table>
         <tbody className="cards-container">
           {
-            this.state.cards.map((row, i) => <tr key={i}>{ [...row].map(c => <td><Card /></td>)}</tr>)
+            this.state.cards.map((row, i) => <tr key={i}>{ [...row].map(c => <td><Card data={c}/></td>)}</tr>)
           }
         </tbody>
       </table>

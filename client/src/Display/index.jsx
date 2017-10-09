@@ -5,7 +5,7 @@ class Display extends React.Component {
   render() {
     return (
       <div className='display-container'>
-        <span className='name'>Name</span> <span className='display-data'>Data</span>
+        <span className='name'>{this.props.title.slice(0, this.props.title.lastIndexOf('A'))}</span> <span className='display-data'>{this.props.rating}</span>
       </div>
     )
   }
