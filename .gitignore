@@ -1,6 +1,8 @@
 .gitignore
 node_modules
 
+private.js
+
 # Logs
 logs
 *.log

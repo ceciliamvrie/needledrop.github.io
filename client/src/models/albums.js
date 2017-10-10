@@ -1,38 +1,23 @@
-const axios = require('axios')
-const querystring = require('querystring');
+var Data = require('./data')
 
-const CLIENT_ID = '5ca5d25b4d464174bd8b2b0894662cf1'
-const CLIENT_SECRET = '42ff143a22d1496eae9327d83fc5448e'
+const albums = Data.map((review) => {
+  var artist = review.title.slice(0, review.title.indexOf('-'))
+  var album = review.title.slice(review.title.indexOf('- ')+2, review.title.lastIndexOf('A'))
 
-module.exports = {
-  findToken: async () => {
-    const auth = await axios({
-          method: 'post',
-          url: 'https://accounts.spotify.com/api/token',
-          headers: {
-            'Authorization': `Basic ${new Buffer(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64')}`,
-            'content-type': 'application/x-www-form-urlencoded',
-          },
-          data: querystring.stringify({
-              grant_type: 'client_credentials'
-          })
-        })
+  if (review.title.indexOf('DOUBLE') >= 0) {
+    album = review.title.slice(review.title.indexOf('- '), review.title.lastIndexOf('D'))
+  }
+  if (review.title.indexOf('é') >= 0) {
+    var beginning = review.title.split('').slice(0, review.title.indexOf('é'))
+    var half = review.title.split('').slice(review.title.indexOf('é')+1, review.title.lastIndexOf(' -'))
+    artist = beginning.join('') + 'e' + half.join('')
+  }
+  if (album.indexOf('-') >= 0) {
+    album = album.split('- ')[1]
+  }
+  return [artist , album]
+})
 
-        return auth.data.access_token
-    },
-  findCovers: async (name, album, token) => {
-    const covers = await axios({
-        method: 'get',
-        url: `https://api.spotify.com/v1/search?q=${album}%20artist:${name}&type=album`,
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        }
-      })
-
-      return covers.data.albums.items[0].images[2]
-    }
+export default {
+  albums: albums
 }
-
-// (async () => {
-//   console.log(await findCovers('Amine', 'Good For You', await findToken()))
-// })()
