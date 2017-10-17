@@ -1,4 +1,5 @@
-const Data = [ { "videoId": "wpOna_7hIz",
+const Data = [
+  { "videoId": "wpOna_7hIz",
     "publishedAt": "2017-08-01T18:42:36.000",
     "title": "Aminé - Good For You ALBUM REVIE",
     "thumbnailUrl": "https://i.ytimg.com/vi/wpOna_7hIzM/hqdefault.jp",
