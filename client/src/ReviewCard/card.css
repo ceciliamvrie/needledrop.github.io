@@ -13,6 +13,18 @@
   position: relative;
 }
 
+.play-button {
+  position: absolute;
+  top: 58px;
+  right: 110px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 1.63em 0 1.63em 3.2em;
+  border-color: transparent transparent transparent #000;
+  opacity: 1;
+}
+
 .browser-dots {
   margin-top: 21%;
   width: 4px;
@@ -39,6 +51,16 @@
   height: 110px;
   border-radius: 50%;
   opacity: 0.7;
+}
+
+.transparent-circle {
+  margin: auto;
+  text-align: center;
+  background-color: transparent;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  
 }
 
 .overlay {
