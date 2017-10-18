@@ -1,6 +1,7 @@
 import './card.css'
 import React, { Component } from 'react'
 import Display from '../Display/index.jsx'
+import axios from 'axios'
 
 class Card extends React.Component {
   constructor(props) {
@@ -13,8 +14,23 @@ class Card extends React.Component {
   componentDidMount() {
     console.log('IMAGE', this.props)
     this.setState({
-      image: this.props.image
+      image: this.props.image,
+      isClicked: false
     })
+  }
+  async onClicked(e) {
+    const artist = this.props.data.title.split('').slice(0, this.props.data.title.indexOf('-')).join('')
+    var album = this.props.data.title.slice(this.props.data.title.indexOf('- ')+2, this.props.data.title.lastIndexOf('A'))
+    if (album.includes('DOUBLE')) {
+      album = album.slice(0, album.lastIndexOf('D'))
+    }
+    const image = (await axios(`/api/spotify/album-cover?artist=${encodeURIComponent(artist)}&album=${encodeURIComponent(album)}`)).data
+    console.log('image', image)
+    this.setState({
+      uri: image.items[0].uri,
+      isClicked: true,
+    })
+    console.log(this.state.uri)
   }
   showPopup(e) {
     this.setState({
@@ -33,11 +49,11 @@ class Card extends React.Component {
           </div>
          </div>
           {
-            !this.state.isHovering ? <div style={{'backgroundImage': `url(${this.props.data.thumbnailUrl}g)`, 'backgroundSize': '300px auto', 'backgroundPosition': 'center'}}className="overlay"><div className="circle"><p className="youtube">{this.props.data.rating}</p></div></div> : <div className="overlay"><div className="transparent-circle"><span className="play-button"></span></div></div>
+            this.state.isClicked ? <iframe src={"https://open.spotify.com/embed?uri=" + this.state.uri} width="250" height="80" frameborder="0" allowtransparency="true"></iframe> : !this.state.isHovering ? <div style={{'backgroundImage': `url(${this.props.data.thumbnailUrl}g)`, 'backgroundSize': '300px auto', 'backgroundPosition': 'center'}}className="overlay"><div className="circle"><p className="youtube">{this.props.data.rating}</p></div></div> : <div className="overlay" onClick={this.onClicked.bind(this)}><div className="transparent-circle"><span className="play-button"></span></div></div>
           }
        </div>
       {/*  name and date/views/rating go here  */}
-      <Display title={this.props.data.title} rating={this.props.data.rating}/>
+      <Display title={this.props.data.title.includes('DOUBLE') ? this.props.data.title.slice(0, this.props.data.title.lastIndexOf('D')) : this.props.data.title} rating={this.props.data.rating}/>
     </div>
     )
   }
