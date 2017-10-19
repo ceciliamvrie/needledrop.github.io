@@ -12,15 +12,6 @@ class App extends React.Component {
       count: 0
     }
   }
-  // async componentDidMount() {
-  //   this.props.albums.forEach(async (a) => {
-  //     const image = (await axios(`/api/spotify/album-cover?artist=${encodeURIComponent(a[0])}&album=${encodeURIComponent(a[1])}`)).data
-  //     console.log('image', image)
-  //     this.setState({
-  //       covers: this.state.covers.concat(image)
-  //     })
-  //   })
-  // }
   render() {
     return (
       <div>

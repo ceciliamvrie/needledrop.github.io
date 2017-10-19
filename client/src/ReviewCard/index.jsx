@@ -49,7 +49,7 @@ class Card extends React.Component {
           </div>
          </div>
           {
-            this.state.isClicked ? <div style={{'background': '#282828', "height": '127px', 'paddingTop': '40px'}}><iframe style={{'border': 'none', 'height': '200px'}} src={"https://open.spotify.com/embed?uri=" + this.state.uri} width="285" height="150px" frameborder="0" allowtransparency="true"></iframe></div> : !this.state.isHovering ? <div style={{'backgroundImage': `url(${this.props.data.thumbnailUrl}g)`, 'backgroundSize': '300px auto', 'backgroundPosition': 'center'}}className="overlay"><div className="circle"><p className="youtube">{this.props.data.rating}</p></div></div> : <div className="overlay" onClick={this.onClicked.bind(this)}><div className="transparent-circle"><span className="play-button"></span></div></div>
+            this.state.isClicked ? <div style={{'background': '#282828', "height": '127px', 'paddingTop': '40px'}}><iframe style={{'border': 'none', 'height': '200px'}} src={"https://open.spotify.com/embed?uri=" + this.state.uri} width="285" height="150px" frameborder="0" allowtransparency="true"></iframe></div> : !this.state.isHovering ? <div style={{'backgroundImage': `url(${this.props.data.thumbnailUrl}g)`, 'backgroundSize': '300px auto', 'backgroundPosition': 'center'}}className="overlay"><div className="circle"><p className="youtube">{this.props.data.rating}</p></div></div> : <div className="overlay"><button className="play-album" onClick={this.onClicked.bind(this)}><span id="play-button">▷</span>Play Album</button><button className="watch-review">Watch Review</button></div>
           }
        </div>
       {/*  name and date/views/rating go here  */}

@@ -14,3 +14,30 @@ tr {
 td {
   display: inline-block;
 }
+
+.watch-review {
+  padding: 65px 20px;
+  background-color: #111;
+  border-radius: 0;
+  border: 1px solid #111;
+  color: #fff;
+  margin-top: -7%;
+  margin-left: 2%;
+}
+
+.play-album {
+  background-color: #fff;
+  border-radius: 0;
+  border: 1px solid #fff;
+  padding: 65px 20px;
+  margin-top: -7%;
+  margin-right: 2%;
+}
+
+.play-album:hover, .watch-review {
+  cursor: pointer;
+}
+
+#play-button {
+  margin-right: 5px;
+}

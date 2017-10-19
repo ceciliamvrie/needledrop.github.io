@@ -33,6 +33,5 @@ export const fetchAlbumCover = async (artist, album) => {
     })
 
     const cover = covers.data.albums
-    // .items[0].images[2].url
     return cover
   }
